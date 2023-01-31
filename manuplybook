@@ -1,0 +1,13 @@
+hosts: all
+become: true
+gather_facts: true
+tasks:
+-name:install packages using yum
+yum: 
+ name:"{{packages}}"
+ state:present
+vars:
+ packages:
+  -httpd
+  -vsftpd
+  -php
